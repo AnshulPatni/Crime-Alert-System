@@ -4,22 +4,32 @@
 
 # Description
 
-Perform analytics and visualize the crime data, find the relations between
-the demographic data of an area and the crime data of that area to find the
-possible cause of crime and allocate more police forces to those areas
-
-# Architecture
-
-Inline-style: 
-![alt text](images/systemArchitecture.png "System Architecure")
+Application to provide realtime alerts for crime for all registered users using email or SMS. 
+Provide analytics on historical and realtime ingested data of all crimes comparing with other socio-economic factors.
 
 
-# Implementation
+# what do we do?
 
-1) Stream the events to Kafka Topic ( IBM Bluemix Message Hub)
-2) Consume the event using Spark Streaming
-3) Perform tansformation using Spark/Hive
-4) Connect to Tableau to vizualize the data
+1) Stream Crime Data from Control Centers to KAFKA (IBM BLUEMIX MESSAGE HUB)
+2) Use Apace Spark to stream Data from KAFKA and store in HDFS
+3) Perform Analytics using Spark
+4) Provide Email and SMS alerts for violent crimes
+
+# How do we do?
+
+1) Stream Crime Data to KAFKA (IBM BLUEMIX MESSAGE HUB)  from Control Centers.
+2) Read Stream's of Data in real-time from Kafka using Apache Spark Streaming (using scala as programming language).
+3) Store data to Hadoop Distributed File System (HDFS) for ETL processing and perform analytics.
+4) Filter violent crimes and store in Amazon RDS for NodeJS web app to send alerts to all registered users in interested area.
+5) Web application reads from RDS and sends out alerts to users in realtime. 
+
+# Modules
+
+Kafka/Producer - To stream data into Kafka topics
+NodeJS_Application  - Web application to send alerts and register user's.
+SparkStreaming - Spark/Scala application for realtime streaming and performing analytics.
+
+
 
 
 

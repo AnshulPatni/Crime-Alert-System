@@ -1,0 +1,8 @@
+create table admin 
+(username varchar(100),
+password varchar(100));
+create table  alerts
+(id int auto_increment,
+county_name varchar(1000),
+alert_text varchar(4000)
+);

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <script type="text/javascript" src="user.js"></script>
+    <script>
+    function postItem() {
+        $.ajax({
+            type: "GET",
+            url: "/static/json/garbage.json",
+            timeout: 2000,
+            success: function(data) {
+                //show content
+                alert('Success!')
+            },
+            error: function(jqXHR, textStatus, err) {
+                //show error message
+                alert('text status '+textStatus+', err '+err)
+            }
+        });
+    }//postItem()
+
+    $('#new-item').on('click', function() {
+        postItem();
+    });
+    
+    </script>
+  </head>
+  <body>
+  IN INDEX
+  <form method="post" action="/user" class="list">
+  <input type="submit">
+  
+  </form>
+  
+  </body>
+</html>

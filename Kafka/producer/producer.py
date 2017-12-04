@@ -15,7 +15,7 @@
     "kafka03-prod02.messagehub.services.us-south.bluemix.net:9093"
   ],
   "user": "xxxxx",
-  "password": "xxxxxx"
+  "password": "xxxxx"
 }
 
 """
@@ -51,19 +51,19 @@ driver_options = {
             'bootstrap.servers': bs_server,
             'security.protocol': 'SASL_SSL',
             'sasl.mechanisms': 'PLAIN',
-            'sasl.username': "xxxxxx",
-            'sasl.password': "xxxxxxx",
+            'sasl.username': "xxxxx",
+            'sasl.password': "xxxxxx",
             'api.version.request': True,
             'client.id': 'kafka-python-console-sample-producer',
-
-        }
+  }
 
 
 prd = Producer(driver_options)
 
 i = 0
-filename = '/Users/nikhila/Downloads/crime_data.csv'
-
+filename1 = '/Users/nikhila/Desktop/272_project/data/Streaming/SFO_Crime_Stream.csv'
+filename2 = '/Users/nikhila/Desktop/272_project/data/Streaming/LA_Crime_Stream.csv'
+filename3 = '/Users/nikhila/Desktop/272_project/data/Streaming/Chicago_Crime_Stream.csv'
 
 
 
@@ -71,13 +71,37 @@ filename = '/Users/nikhila/Downloads/crime_data.csv'
 import csv
 str = ""
 try:
-    with open(filename, 'r') as csvf :
+    with open(filename1, 'r') as csvf :
         sr = csv.reader(csvf, delimiter=',', quotechar='"')
         for r in sr:
             #print(type(r))
             str = '|'.join(r)
             print(str)
-            prd.produce("test2", str, "crime_data", on_delivery=on_delivery)
+            prd.produce("test2", str, "sfo", on_delivery=on_delivery)
+        prd.poll(0)
+except Exception as e :
+    print(e)
+
+try:
+    with open(filename2, 'r') as csvf :
+        sr = csv.reader(csvf, delimiter=',', quotechar='"')
+        for r in sr:
+            #print(type(r))
+            str = '|'.join(r)
+            print(str)
+            prd.produce("test2", str, "la", on_delivery=on_delivery)
+        prd.poll(0)
+except Exception as e :
+    print(e)
+
+try:
+    with open(filename3, 'r') as csvf :
+        sr = csv.reader(csvf, delimiter=',', quotechar='"')
+        for r in sr:
+            #print(type(r))
+            str = '|'.join(r)
+            print(str)
+            prd.produce("test2", str, "chicago", on_delivery=on_delivery)
         prd.poll(0)
 except Exception as e :
     print(e)

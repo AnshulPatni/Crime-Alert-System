@@ -25,8 +25,10 @@ Provide analytics on historical and realtime ingested data of all crimes compari
 
 # Modules
 
-Kafka/Producer - To stream data into Kafka topics
+Kafka/Producer - To stream data into Kafka topics.
+
 NodeJS_Application  - Web application to send alerts and register user's.
+
 SparkStreaming - Spark/Scala application for realtime streaming and performing analytics.
 
 

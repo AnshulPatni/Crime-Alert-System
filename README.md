@@ -7,6 +7,9 @@
 Application to provide realtime alerts for crime for all registered users using email or SMS. 
 Provide analytics on historical and realtime ingested data of all crimes comparing with other socio-economic factors.
 
+# Architecture
+
+![alt text](images/systemArchitecture.png "System Architecure")
 
 # what do we do?
 

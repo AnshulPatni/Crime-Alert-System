@@ -26,8 +26,9 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
-
-app.get('/', home.signin);
+app.get('/', user.getHomePage);
+app.get('/home', user.getHomePage);
+app.get('/signIn', home.signin);
 app.get('/logout',home.signin);
 app.post('/afterSignIn', home.afterSignIn);
 app.post('/signup', home.signup);
@@ -40,7 +41,7 @@ app.get('/showUsers',admin.showUsers);
 app.get('/pdContacts',admin.getpdContacts);
 app.post('/alertPeople',admin.getAlertPeople);
 app.post('/getRegister',admin.getRegister);
-
+app.get('/userAlerts',user.getUserAlerts);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

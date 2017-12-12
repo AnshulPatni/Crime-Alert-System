@@ -31,6 +31,7 @@ Provide analytics on historical and realtime ingested data of all crimes compari
 Kafka/Producer - To stream data into Kafka topics.
 
 NodeJS_Application  - Web application to send alerts and register user's.
+  Website URL: http://ec2-34-216-77-34.us-west-2.compute.amazonaws.com:3019/
 
 SparkStreaming - Spark/Scala application for realtime streaming and performing analytics.
 
